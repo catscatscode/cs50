@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <!--<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">-->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300&family=Noto+Sans+SC:wght@300&display=swap" rel="stylesheet">
+        <link href="styles.css" rel="stylesheet">
+        <title>Trivia!</title>
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+            // q1
+                // When correct answer is clicked, change color to green and show the word "Correct!"
+                let correct = document.querySelector('.q1-correct-answer');
+                correct.onclick = function() {
+                    correct.style.backgroundColor = 'green';
+                    document.getElementById('q1-correct-feedback').style.display = 'block';
+                };
+                // When any incorrect answer is clicked, change color to red and show the word "Incorrect"
+                let incorrects = document.querySelectorAll('.q1-incorrect-answer');
+                for (let i = 0; i < incorrects.length; i++) {
+                    incorrects[i].onclick = function() {
+                        incorrects[i].style.backgroundColor = 'red';
+                        document.getElementById('q1-incorrect-feedback').style.display = 'block';
+                    };
+                };
+            // q2
+                // Make sure form doesn't submit and app stays client-side
+                let input = document.querySelector('input');
+                document.querySelector('form').onsubmit = function() {
+                    return false;
+                };
+                document.querySelector('form').addEventListener('submit', function(event) {
+                    // When correct answer is entered, make field green and show the word "Correct!"
+                    if (input.value === 'Health') {
+                        document.querySelector('#field').style.backgroundColor = 'green';
+                        document.getElementById('q2-correct-feedback').style.display = 'block';
+                    } else {
+                        // When any other answer is entered, make field red and show the word "Incorrect"
+                        document.querySelector('#field').style.backgroundColor = 'red';
+                        document.getElementById('q2-incorrect-feedback').style.display = 'block';
+                    }
+                });
+            });
+        </script>
+    </head>
+    <body>
+        <div class="jumbotron">
+            <h1>Trivia!</h1>
+        </div>
+        <div class="container">
+            <div class="section">
+                <h2>Part 1: Multiple Choice </h2>
+                <hr>
+                <h3>In 1718, which pirate died in battle off the coast of what is now North Carolina?</h3>
+                <button class="q1-incorrect-answer">Calico Jack</button>
+                <button class="q1-correct-answer">Blackbeard</button>
+                <button class="q1-incorrect-answer">Bartholomew Roberts</button>
+                <button class="q1-incorrect-answer">Captain Kidd</button>
+                <p id="q1-correct-feedback">Correct!</p>
+                <p id="q1-incorrect-feedback">Incorrect</p>
+            </div>
+            <div class="section">
+                <h2>Part 2: Free Response</h2>
+                <hr>
+                <h3>In the UK, the abbreviation NHS stands for National what Service?</h3>
+                <form>
+                    <input type="text" id="field"></input>
+                    <input type="submit" value="Check Answer"></input>
+                </form>
+                <p id="q2-correct-feedback">Correct!</p>
+                <p id="q2-incorrect-feedback">Incorrect</p>
+            </div>
+        </div>
+    </body>
+</html>
