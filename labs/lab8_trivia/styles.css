@@ -72,16 +72,20 @@ button:hover {
     transition: color 2s ease-in-out, background-color 0.15s ease-in-out;
 }
 
-#q1-correct-feedback,#q2-correct-feedback,#q1-incorrect-feedback,#q2-incorrect-feedback {
+#q1-correct-feedback,#q2-correct-feedback,#q1-incorrect-feedback,#q2-incorrect-feedback,#q2-empty-feedback {
     font-weight: bold;
     display: none;
 }
 
 #q1-incorrect-feedback,#q2-incorrect-feedback {
-    color: red;
+    color: #db4646;
 
 }
 
 #q1-correct-feedback,#q2-correct-feedback {
-    color: green;
+    color: #77bc8b;
+}
+
+#q2-empty-feedback {
+    color: #db4646;
 }
